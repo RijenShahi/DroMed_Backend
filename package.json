@@ -1,7 +1,7 @@
 {
-  "name": "rijen_electronic_gadgets",
+  "name": "rijen_dromed_backend",
   "version": "1.0.0",
-  "description": "It is the e-commerce site for electronic gadgets",
+  "description": "It is the backend system for ordering medication packages from DroMed android application",
   "main": "app.js",
   "scripts": {
     "test": "jest"

@@ -1,6 +1,6 @@
 const Registration = require('../models/accountModel');
 const Product = require('../models/productModel')
-const Booking = require('../models/bookingModel')
+const ordering = require('../models/orderingModel')
 const mongoose = require('mongoose');
 
 
@@ -77,9 +77,9 @@ describe("User Testing",()=>{
         
     })
 
-    //testing for product booking
-    it("Testing for product booking",()=>{
-            const booking = {
+    //testing for product ordering
+    it("Testing for product ordering",()=>{
+            const ordering = {
                 "user_id": "60794235c660853608043b34",
                 "product_id": "607c599c3e3e5d0ffc8e0822",
                 "quantity": 4,
@@ -88,23 +88,23 @@ describe("User Testing",()=>{
             
             }
 
-            return Booking.create(booking)
-            .then((booking_ret)=>{
-                expect(booking_ret.quantity).toEqual(4)
+            return ordering.create(ordering)
+            .then((ordering_ret)=>{
+                expect(ordering_ret.quantity).toEqual(4)
             })
     })
 
-    //testing for booking delete
-    it("Testing for Booking Delete",async ()=>{
-        const status = await Booking.deleteOne({
+    //testing for ordering delete
+    it("Testing for ordering Delete",async ()=>{
+        const status = await ordering.deleteOne({
             "_id": Object("607c9c624e6a1f0d4c2d09b6")
         })
         expect(status.ok).toBe(1);
     })
 
-    //testing for booking update
-    it("Testing Booking update",async ()=>{
-       const status = await Booking.updateOne({_id:Object("607c9c604e6a1f0d4c2d09b5")},{
+    //testing for ordering update
+    it("Testing ordering update",async ()=>{
+       const status = await ordering.updateOne({_id:Object("607c9c604e6a1f0d4c2d09b5")},{
             $set:{
                 "quantity":2
             }
