@@ -5,6 +5,7 @@ const { check, validationResult } = require('express-validator');
 const auth = require('../middleware/auth');
 const { findOneAndUpdate } = require('../models/productModel');
 const upload = require('../middleware/upload');
+const { search } = require('./accountRoute');
 
 //middleware=//auth.verifyUser//auth.verifyAdmin
 router.post('/product/insert', upload.single('pImage'), auth.verifyUser, auth.verifyAdmin, function (req, res) {
@@ -74,8 +75,11 @@ router.post('/product/delete', auth.verifyUser, auth.verifyAdmin, function (req,
 
 // gives all products
 router.get('/product/showAll', function (req, res) {
-    Product.find()
+    console.log("hit")
+    const searchTerm = req.params.searchTerm
+    Product.find({pName: new RegExp(searchTerm, "i")})
         .then(function (data) {
+            console.log(data)
             res.status(200).json({ success: true, data: data })
         })
         .catch(function (e) {

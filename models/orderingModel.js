@@ -2,7 +2,7 @@ const { ObjectId } = require('bson');
 const Product = require('./productModel');
 const mongoose = require('mongoose');
 
-const GadgetBooking = mongoose.model('GadgetBooking', {
+const MedicationOrdering = mongoose.model('MedicationOrdering', {
     "user_id": { "type": ObjectId, "required": true },
     "product_id": { "type": ObjectId, "required": true, ref: Product },
     "quantity": { "type": Number, "required": true },
@@ -12,4 +12,4 @@ const GadgetBooking = mongoose.model('GadgetBooking', {
 
 })
 
-module.exports = GadgetBooking
+module.exports = MedicationOrdering

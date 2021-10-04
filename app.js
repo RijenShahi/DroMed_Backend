@@ -3,7 +3,7 @@ const database = require('./database/database')
 const bodyParser = require('body-parser');
 const accountRoute = require('./routes/accountRoute');
 const productRoute = require('./routes/productRoute');
-const bookingRoute = require('./routes/orderingRoute')
+const orderingRoute = require('./routes/orderingRoute')
 const ratingRoute = require('./routes/ratingRoute');
 const cors = require('cors')
 const path = require("path")
@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 
 app.use("/api/account", accountRoute);
 app.use("/api", productRoute);
-app.use("/api", bookingRoute)
+app.use("/api", orderingRoute)
 app.use("/api", ratingRoute);
 
 app.listen(90);
